@@ -27,6 +27,7 @@ public class CafeJava {
     
         // APP INTERACTION SIMULATION (Add your code for the challenges below)
         System.out.println(customer1 + pendingMessage);
+
         if (isReadyOrder4) {
             System.out.println(customer4 + readyMessage);
             System.out.println(displayTotalMessage + cappucinoPrice);
@@ -34,13 +35,16 @@ public class CafeJava {
         else {
             System.out.println(customer4 + pendingMessage);
         }
+
         System.out.println(displayTotalMessage + (lattePrice*2));
+
         if (isReadyOrder2) {
             System.out.println(customer2 + readyMessage);
         }
         else {
             System.out.println(customer2 + pendingMessage);
         }
+
         System.out.println(displayTotalMessage + (lattePrice - dripPrice));
     }
 }
