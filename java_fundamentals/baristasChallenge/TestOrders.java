@@ -27,10 +27,19 @@ public class TestOrders {
         order5.addItem(item3);
         order5.addItem(item5);
 
+        order1.isReady(true);
+        order3.isReady(true);
+        order5.isReady(true);
+
         order1.display();
+        System.out.println(order1.getStatusMessage());
         order2.display();
+        System.out.println(order2.getStatusMessage());
         order3.display();
+        System.out.println(order3.getStatusMessage());
         order4.display();
+        System.out.println(order4.getStatusMessage());
         order5.display();
+        System.out.println(order5.getStatusMessage());
     }
 }

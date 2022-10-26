@@ -39,10 +39,10 @@ public class Order {
 
     public String getStatusMessage() {
         if (this.ready == true){
-            return "Your order is ready.";
+            return this.name + ", Your order is ready.";
         }
         else{
-            return "Thank you for waiting. Your order will be ready soon.";
+            return "Thank you for waiting, " + this.name + ". Your order will be ready soon.";
         }
     }
 
