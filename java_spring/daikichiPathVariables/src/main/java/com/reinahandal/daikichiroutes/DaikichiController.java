@@ -24,9 +24,8 @@ public class DaikichiController {
 		return "Congratulations! You will soon travel to " + city;
 	}
 	@RequestMapping("/lotto/{num}")
-	public String lotto(@PathVariable("num") String num) {
-		int x= Integer.parseInt(num);
-		if(x%2==0) {
+	public String lotto(@PathVariable("num") Integer num) {
+		if(num%2==0) {
 			return "You will take a grand journey in the near future, but be weary of tempting offers.";
 		}
 		else {
