@@ -1,0 +1,19 @@
+form {
+	padding: 20px;
+}
+main {
+	padding: 20px;
+}
+.container {
+	width: 80%;
+}
+.link {
+	padding-top: 10px;
+}
+.card {
+	padding: 20px;
+	width: 50%;
+}
+.fortune {
+	font-size: 2rem;
+}
