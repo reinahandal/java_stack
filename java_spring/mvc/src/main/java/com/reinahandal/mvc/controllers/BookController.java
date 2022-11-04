@@ -1,5 +1,7 @@
 package com.reinahandal.mvc.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +20,19 @@ public class BookController {
 	BookService bookService;
 	
 	@GetMapping("/books/{bookId}")
-	public String index(@PathVariable("bookId") Long bookId, Model model) {
+	public String showBook(@PathVariable("bookId") Long bookId, Model model) {
 		
 		Book book = bookService.findBook(bookId);
 		model.addAttribute("book", book);
 		
 		return "show.jsp";
+	}
+	
+	@GetMapping("/books")
+	public String index(Model model) {
+		ArrayList<Book> books = bookService.allBooks();
+		model.addAttribute("books", books);
+		
+		return "index.jsp";
 	}
 }

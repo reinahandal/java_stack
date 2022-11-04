@@ -1,6 +1,6 @@
 package com.reinahandal.mvc.services;
 
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -17,8 +17,8 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
     // returns all the books
-    public List<Book> allBooks() {
-        return bookRepository.findAll();
+    public ArrayList<Book> allBooks() {
+        return (ArrayList<Book>) bookRepository.findAll();
     }
     // creates a book
     public Book createBook(Book b) {
