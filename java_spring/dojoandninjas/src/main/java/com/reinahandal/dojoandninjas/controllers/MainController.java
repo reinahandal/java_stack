@@ -1,5 +1,7 @@
 package com.reinahandal.dojoandninjas.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +37,7 @@ public class MainController {
 	}
 	// processes the form that creates new dojo
 	@PostMapping("/dojos/create")
-	public String createDojo(@ModelAttribute("dojo") Dojo dojo, BindingResult result) {
+	public String createDojo(@Valid @ModelAttribute("dojo") Dojo dojo, BindingResult result) {
 		if (result.hasErrors()) {
 			return "newdojo.jsp";
 		}
@@ -54,7 +56,7 @@ public class MainController {
 	
 	// processes the form that creates ninja
 	@PostMapping("/ninjas/create")
-	public String createNinja(Model model, @ModelAttribute("ninja") Ninja ninja, BindingResult result) {
+	public String createNinja(Model model,@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result) {
 		if (result.hasErrors()) {
 			model.addAttribute("dojos", dojoService.allDojos());
 			return "newninja.jsp";
