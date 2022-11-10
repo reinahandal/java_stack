@@ -1,0 +1,21 @@
+body {
+	padding: 20px;
+}
+main {
+    display: flex;
+    margin: 2%;
+    justify-content: space-evenly;
+}
+
+.login-reg {
+    width: 40%;
+    padding: 10px;
+}
+@media all and (max-width: 1000px) {
+    .login-reg {
+        width: 45%;
+    }
+}
+form {
+    padding: 10px;
+}
