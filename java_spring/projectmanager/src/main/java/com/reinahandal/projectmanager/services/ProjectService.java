@@ -27,19 +27,26 @@ public class ProjectService {
 	@Autowired
 	TaskRepository taskRepo;
 	
-
+	// creates project
 	public Project createProject(Project p) {
 		return projectRepo.save(p);
 	}
 	
+	// updates project
 	public Project updateProject(Project p) {
 		return projectRepo.save(p);
 	}
 	
+	// deletes project 
 	public void deleteProject(Long id) {
 		projectRepo.deleteById(id);
 	}
 	
+    // returns all projects
+    public ArrayList<Project> allProjects() {
+        return (ArrayList<Project>) projectRepo.findAll();
+    }
+    
     // retrieves a project
     public Project findProject(Long id) {
         Optional<Project> optionalProject = projectRepo.findById(id);
@@ -55,7 +62,7 @@ public class ProjectService {
     	return projectRepo.findAllByTeamMembersNotContains(user);
     }
     
-    // retrieves projects this user is a member of or leads
+    // retrieves projects this user is a member of nor leads
     public List<Project> findMyProjects(User user){
     	List<Project> myProjects = new ArrayList<Project>();
     	myProjects.addAll(projectRepo.findAllByTeamLead(user));

@@ -21,7 +21,7 @@
 		<p class="text-end"><a href="/dashboard">Back to Dashboard</a></p>
 		<h1>Project: <c:out value="${project.title}"></c:out></h1>
 		<h4>Project Lead: <c:out value="${project.teamLead.firstName}"></c:out></h4>
-		<form:form action="/projects/${project.id}/tasks/new" modelAttribute="task" method="post">
+		<form:form action="/projects/${project.id}/tasks" modelAttribute="task" method="post">
 				<form:label path="ticket" class="form-label">Add a task ticket for this team:</form:label>
 		        <form:errors path="ticket" class="text-danger small"/>
 		        <form:textarea path="ticket" class="form-control"/>

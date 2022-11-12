@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<td>Due Date:</td>
-			<td><fmt:formatDate type="date"  pattern="dd/MMM/yyyy" value="${project.dueDate}"/></td>
+			<td><fmt:formatDate type="date"  pattern="dd/MM/yyyy" value="${project.dueDate}"/></td>
 		</tr>
 		</table>
 		<c:if test="${isMember == true || project.teamLead.id == userId}">

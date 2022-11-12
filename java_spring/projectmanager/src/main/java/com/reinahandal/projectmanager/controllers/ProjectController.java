@@ -53,6 +53,7 @@ public class ProjectController {
 		projectService.joinProject(userProject);
 		return "redirect:/dashboard";
 	}
+	
 	// removes user from project as team member
 	@PostMapping("/leave")
 	public String leaveProject(
@@ -76,8 +77,9 @@ public class ProjectController {
 			return "redirect:/";
 		}
 	}
+	
 	// processes form to create new project
-	@PostMapping("/createproject")
+	@PostMapping("/projects/new")
 	public String createProject(@Valid @ModelAttribute("project") Project project, BindingResult result) {
 		if(result.hasErrors()) {
 			return "newProject.jsp";
@@ -86,6 +88,7 @@ public class ProjectController {
 			return "redirect:/dashboard";
 		}
 	}
+	
 	// renders form for editing project 
 	@GetMapping("/projects/edit/{id}")
 	public String editProject(HttpSession session, @PathVariable("id") Long projectId, Model model) {
@@ -100,6 +103,7 @@ public class ProjectController {
 			return "redirect:/";
 		}
 	}
+	
 	// processes form that edits project
 	@PutMapping("/project/edit/{id}")
 	public String updateProject(@Valid @ModelAttribute("project") Project project, 
@@ -111,6 +115,8 @@ public class ProjectController {
 				if (result.hasErrors()) {
 					return "editProject.jsp";
 				} else {
+					Project thisProject = projectService.findProject(projectId);
+					project.setTeamMembers(thisProject.getTeamMembers());
 					projectService.updateProject(project);
 					return "redirect:/projects/"+projectId; 				}
 			} else {
@@ -121,6 +127,7 @@ public class ProjectController {
 		}
 		
 	}
+	
 	// renders page with project details
 	@GetMapping("/projects/{id}")
 	public String showProject(
@@ -169,8 +176,9 @@ public class ProjectController {
 			return "redirect:/";
 		}
 	}
+	
 	// creates new project task
-	@PostMapping("/projects/{projectId}/tasks/new")
+	@PostMapping("/projects/{projectId}/tasks")
 	public String newTask(
 			@PathVariable("projectId") Long projectId,
 			@Valid @ModelAttribute("task") Task task,

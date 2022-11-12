@@ -33,9 +33,9 @@
 	        <form:input type="date" path="dueDate" class="form-control"/>
 	   		
 	   		<form:input type="hidden" path="teamLead" value="${project.teamLead.id}"/>
+			<a href="/dashboard" class="btn btn-outline-dark">Cancel</a>
 	    	<input type="submit" value="Submit" class="btn btn-dark"/>
 		</form:form>
-		<a href="/dashboard" class="btn btn-outline-dark">Cancel</a>
 	</div>
 </body>
 </html>

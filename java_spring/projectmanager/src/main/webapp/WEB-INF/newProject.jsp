@@ -18,7 +18,7 @@
 <body>
 	<div class="container">
 		<h1>Create a Project</h1>
-		<form:form action="/createproject" method="post" modelAttribute="project">
+		<form:form action="/projects/new" method="post" modelAttribute="project">
 	        <form:label path="title" class="form-label">Project Title:</form:label>
 	        <form:errors path="title" class="text-danger small"/>
 	        <form:input path="title" class="form-control"/>
@@ -32,9 +32,9 @@
 	        <form:input type="date" path="dueDate" class="form-control"/>
 	   		
 	   		<form:input type="hidden" path="teamLead" value="${userId}"/>
+			<a href="/dashboard" class="btn btn-outline-dark">Cancel</a>
 	    	<input type="submit" value="Submit" class="btn btn-dark"/>
 		</form:form>
-		<a href="/dashboard" class="btn btn-outline-dark">Cancel</a>
 	</div>
 </body>
 </html>
