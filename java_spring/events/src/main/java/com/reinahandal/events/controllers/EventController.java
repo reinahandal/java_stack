@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.reinahandal.events.models.Comment;
 import com.reinahandal.events.models.Event;
@@ -163,5 +164,12 @@ public class EventController {
 			return "redirect:/events/"+eventId;
 		}
 	}
-		
+	
+	// renders search result
+	@GetMapping("/events/search")
+	public String searchEvents(@RequestParam(value="title") String searchKey, Model model) {
+		model.addAttribute("searchResults", eventService.findEventsByName(searchKey));
+		return "search.jsp";
+	}
+	
 }

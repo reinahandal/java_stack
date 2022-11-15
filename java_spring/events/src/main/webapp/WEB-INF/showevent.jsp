@@ -11,18 +11,9 @@
 	<meta charset="UTF-8">
 	<title>${event.name}</title>
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-	<style>
-	.btn {
-		margin: 10px;
-	}
-	.wall {
-		padding: 10px;
-		margin-bottom:10px;
-	}
-	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container mt-3">
 		<p class="text-end"><a href="/events">Back to Homepage</a></p>
 		<h1><c:out value="${event.name}"></c:out></h1>
 		<p>Host: <c:out value="${event.host.firstName}"></c:out></p>
@@ -34,18 +25,18 @@
 			<c:when test="${userIsAttendee == true}">
 				<p>You are going to this event</p>
 				<form action="/leave/${event.id}" method="post">
-					<input type="submit" value="Cancel" class="btn btn-outline-secondary">
+					<input type="submit" value="Cancel" class="btn btn-outline-secondary m-2">
 				</form>
 			</c:when>
 			<c:otherwise>
 				<form action="/join/${event.id}" method="post">
-					<input type="submit" value="Join" class="btn btn-outline-primary">
+					<input type="submit" value="Join" class="btn btn-outline-primary m-2">
 				</form>
 			</c:otherwise>
 			</c:choose>
 		</div>
 		
-		<div class="container border border-dark wall">
+		<div class="border border-dark rounded p-3 m-3">
 		<h3>Message Wall</h3>
 			<c:forEach var="msg" items="${event.comments}">
 				<hr>
@@ -61,7 +52,7 @@
 			<form:input type="hidden" path="creator" value="${userId}"/>
 			<form:input type="hidden" path="event" value="${event.id}"/>
 					
-			<input type="submit" value="Submit" class="btn btn-dark"/>
+			<input type="submit" value="Submit" class="btn btn-dark m-3"/>
 		</form:form>
 	</div>
 </body>

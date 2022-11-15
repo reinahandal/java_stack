@@ -4,23 +4,20 @@
 <%@ page isErrorPage="true" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 	<title>Welcome!</title>
 	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-	<style>
-	.submit-btn {
-		margin: 10px;
-	}
-
-	</style>
 </head>
 <body>
 	<div class="container">
 		<p class="text-end"><a href="/logout">Logout</a></p>
+		<form action="/events/search/" method="get">
+			<input type="search" name="title" class="form-control"/>
+			<input type="submit" value="Search" class="btn btn-primary m-3"/>
+		</form>
 		<h1>Welcome, ${thisUser.firstName}</h1>
 		<p>Here are some of the events happening in your state (${thisUser.state}):</p>
 		<table class="table">
@@ -113,7 +110,7 @@
 			</form:select>
 			</div>   
 	   		<form:input type="hidden" path="host" value="${userId}"/>
-	    	<input type="submit" value="Submit" class="btn btn-dark submit-btn"/>
+	    	<input type="submit" value="Submit" class="btn btn-dark submit-btn m-3"/>
 		</form:form>
 	</div>
 </body>

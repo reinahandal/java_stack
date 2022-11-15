@@ -87,4 +87,8 @@ public class EventService {
     public List<Event> findEventsInOtherStates(State s){
     	return eventRepo.findAllByStateIsNot(s);
     }
+    // find event by search
+    public List<Event> findEventsByName(String name){
+    	return eventRepo.findAllByNameContainsIgnoreCase(name);
+    }
 }
